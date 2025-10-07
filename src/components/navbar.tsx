@@ -1,23 +1,48 @@
 "use client";
 import "@/styles/globals.css";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
     <header className="navbar">
       <div className="w-layout-blockcontainer container">
         <div className="navbar-wrapper">
-          <a href="/" aria-current="page" className="brand-logo w--current">
+          <a href="/" className="brand-logo">
             <div className="brand-text">PreachPro.</div>
           </a>
 
           <nav className="nav-menu" aria-label="Main navigation">
             <div className="nav-menu-wrap">
-              <a href="/" aria-current="page" className="nav-menu-link w--current">
+              <a 
+                href="/" 
+                className={`nav-menu-link ${pathname === "/" ? "w--current" : ""}`}
+                aria-current={pathname === "/" ? "page" : undefined}
+              >
                 Home
               </a>
-              <a href="/about" className="nav-menu-link">About</a>
-              <a href="/features" className="nav-menu-link">Features</a>
-              <a href="/pricing" className="nav-menu-link">Pricing</a>
+              <a 
+                href="/about" 
+                className={`nav-menu-link ${pathname === "/about" ? "w--current" : ""}`}
+                aria-current={pathname === "/about" ? "page" : undefined}
+              >
+                About
+              </a>
+              <a 
+                href="/features" 
+                className={`nav-menu-link ${pathname === "/features" ? "w--current" : ""}`}
+                aria-current={pathname === "/features" ? "page" : undefined}
+              >
+                Features
+              </a>
+              <a 
+                href="/pricing" 
+                className={`nav-menu-link ${pathname === "/pricing" ? "w--current" : ""}`}
+                aria-current={pathname === "/pricing" ? "page" : undefined}
+              >
+                Pricing
+              </a>
             </div>
           </nav>
 

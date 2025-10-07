@@ -1,8 +1,14 @@
-// File: src/components/FeatureV1Section.tsx
 "use client";
 import "@/styles/globals.css";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 export default function FeatureV1Section() {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
     <section className="section feature-v1">
       <div className="feature-v1-bg">
@@ -10,8 +16,8 @@ export default function FeatureV1Section() {
           <div className="feature-v1-wrapper">
             
             {/* Top Section */}
-            <div className="feature-v1-top-wrap">
-              <div className="section-sub-title-wrap">
+            <div className="feature-v1-top-wrap" data-aos="fade-up">
+              <div className="section-sub-title-wrap" data-aos="fade-up" data-aos-delay="100">
                 <div className="section-single-title pd--09">
                   <img
                     src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6884603b84724c2aec08c257_Feature%20Icon.svg"
@@ -22,8 +28,8 @@ export default function FeatureV1Section() {
                   <div className="section-sub-title font-16">Feature</div>
                 </div>
               </div>
-              <h2 className="feature-v1-title">AI-Powered Ministry Management Tools</h2>
-              <p className="feature-v1-details">
+              <h2 className="feature-v1-title" data-aos="fade-up" data-aos-delay="200">AI-Powered Ministry Management Tools</h2>
+              <p className="feature-v1-details" data-aos="fade-up" data-aos-delay="300">
                 Designed specifically for church leadership, we prioritize your ministry's growth and provide comprehensive tools for effective sermon preparation and congregation management.
               </p>
             </div>
@@ -32,7 +38,7 @@ export default function FeatureV1Section() {
             <div className="feature-v1-wrap">
 
               {/* Item 1 */}
-              <div className="feature-v1-top-single-wrap">
+              <div className="feature-v1-top-single-wrap" data-aos="fade-up" data-aos-delay="400">
                 <div className="feature-v1-single-left-wrap _01">
                   <h3 className="assistance-single-title">Smart Sermon Preparation</h3>
                   <p className="assistance-single-details">
@@ -72,7 +78,7 @@ export default function FeatureV1Section() {
               </div>
 
               {/* Item 2 */}
-              <div className="feature-v1-middle-wrap">
+              <div className="feature-v1-middle-wrap" data-aos="fade-up" data-aos-delay="500">
                 <div className="feature-v1-middle-left">
                   <img
                     src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6884edcc994fe01ced25da2c_Feature%20V1%2002.webp"
@@ -112,7 +118,7 @@ export default function FeatureV1Section() {
               </div>
 
               {/* Item 3 */}
-              <div className="feature-v1-btm-wrap">
+              <div className="feature-v1-btm-wrap" data-aos="fade-up" data-aos-delay="600">
                 <div className="feature-v1-middle-right">
                   <h3 className="assistance-single-title">Preach Coach Analytics</h3>
                   <p className="assistance-single-details">

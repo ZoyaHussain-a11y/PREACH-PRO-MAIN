@@ -1,245 +1,184 @@
 'use client';
-
-interface TeamMember {
-  id: number;
-  name: string;
-  position: string;
-  image: string;
-  imageSrcSet: string;
-  imageSizes: string;
-  dataWId: string;
-  socialLinks: {
-    facebook: { dataWId: string };
-    twitter: { dataWId: string };
-    linkedin: { dataWId: string };
-    pinterest: { dataWId: string };
-  };
-}
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Image from 'next/image';
+import { useEffect } from 'react';
 
 const Team = () => {
-  const teamMembers: TeamMember[] = [
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out',
+      once: true,
+    });
+  }, []);
+
+  const teamMembers = [
     {
       id: 1,
       name: "Robert Jhonson",
-      position: "ceo / architect",
+      position: "CEO / Architect",
       image: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa905c8fc8793731d3f9_Member%20Image%2001.webp",
-      imageSrcSet: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa905c8fc8793731d3f9_Member%20Image%2001-p-500.webp 500w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa905c8fc8793731d3f9_Member%20Image%2001-p-800.webp 800w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa905c8fc8793731d3f9_Member%20Image%2001.webp 923w",
-      imageSizes: "(max-width: 767px) 100vw, (max-width: 991px) 728px, 923px",
-      dataWId: "eca404a8-dccd-4003-2d0a-76423871cc0f",
-      socialLinks: {
-        facebook: { dataWId: "4262da88-f4a9-f5e4-df44-bc8e150eca98" },
-        twitter: { dataWId: "f9cb6585-49bd-ecfc-c6fa-e4f862e45e78" },
-        linkedin: { dataWId: "f80e655e-6769-6fe0-7280-5c9efa99c740" },
-        pinterest: { dataWId: "ea730394-8bab-caa6-eb3b-c2463dfcb54c" }
-      }
+      backTitle: "Ceo, Founders"
     },
     {
       id: 2,
       name: "Allisa Breaker",
-      position: "Co Founder / architect",
+      position: "Co Founder / Architect",
       image: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa906c01b1342367e447_Member%20Image%2002.webp",
-      imageSrcSet: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa906c01b1342367e447_Member%20Image%2002-p-500.webp 500w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa906c01b1342367e447_Member%20Image%2002-p-800.webp 800w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa906c01b1342367e447_Member%20Image%2002.webp 922w",
-      imageSizes: "(max-width: 767px) 100vw, (max-width: 991px) 728px, 922px",
-      dataWId: "eaa3b46d-c76c-c2a6-de90-72ae8d111cb0",
-      socialLinks: {
-        facebook: { dataWId: "eaa3b46d-c76c-c2a6-de90-72ae8d111cba" },
-        twitter: { dataWId: "eaa3b46d-c76c-c2a6-de90-72ae8d111cbe" },
-        linkedin: { dataWId: "eaa3b46d-c76c-c2a6-de90-72ae8d111cc2" },
-        pinterest: { dataWId: "eaa3b46d-c76c-c2a6-de90-72ae8d111cc6" }
-      }
+      backTitle: "Co Founder"
     },
     {
       id: 3,
       name: "Mr. Jony",
-      position: "Lead Design / architect",
+      position: "Lead Design / Architect",
       image: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa9080fdbf02fa04eb95_Member%20Image%2003.webp",
-      imageSrcSet: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa9080fdbf02fa04eb95_Member%20Image%2003-p-500.webp 500w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa9080fdbf02fa04eb95_Member%20Image%2003-p-800.webp 800w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa9080fdbf02fa04eb95_Member%20Image%2003.webp 922w",
-      imageSizes: "(max-width: 767px) 100vw, (max-width: 991px) 728px, 922px",
-      dataWId: "2fe5bd27-6a5c-4214-d23d-ba1faeb23c6f",
-      socialLinks: {
-        facebook: { dataWId: "2fe5bd27-6a5c-4214-d23d-ba1faeb23c79" },
-        twitter: { dataWId: "2fe5bd27-6a5c-4214-d23d-ba1faeb23c7d" },
-        linkedin: { dataWId: "2fe5bd27-6a5c-4214-d23d-ba1faeb23c81" },
-        pinterest: { dataWId: "2fe5bd27-6a5c-4214-d23d-ba1faeb23c85" }
-      }
+      backTitle: "Lead Design"
     },
     {
       id: 4,
-      name: "Mr. Jony",
-      position: "Founder / architect",
+      name: "Sophia Brown",
+      position: "Founder / Architect",
       image: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa900842b3ce67503d9f_Member%20Image%2004.webp",
-      imageSrcSet: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa900842b3ce67503d9f_Member%20Image%2004-p-500.webp 500w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa900842b3ce67503d9f_Member%20Image%2004-p-800.webp 800w, https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa900842b3ce67503d9f_Member%20Image%2004.webp 922w",
-      imageSizes: "(max-width: 767px) 100vw, (max-width: 991px) 728px, 922px",
-      dataWId: "2216c2dc-9ede-3198-0a47-1aeba40d1461",
-      socialLinks: {
-        facebook: { dataWId: "2216c2dc-9ede-3198-0a47-1aeba40d146b" },
-        twitter: { dataWId: "2216c2dc-9ede-3198-0a47-1aeba40d146f" },
-        linkedin: { dataWId: "2216c2dc-9ede-3198-0a47-1aeba40d1473" },
-        pinterest: { dataWId: "2216c2dc-9ede-3198-0a47-1aeba40d1477" }
-      }
+      backTitle: "Founder"
     }
   ];
 
-  const backgroundTitles = [
-    "Ceo, Founders",
-    "Ceo , Architect", 
-    "Ceo , Architect",
-    "Ceo , Architect"
-  ];
-
-  const socialIconStyle = {
-    transform: "translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+  const socialIcons = {
+    facebook: {
+      gray: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f40d2b35d3d191e9c_Facebook%20Gray.svg",
+      blue: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aacae02413305de5696e_Facebook%20Blue.svg"
+    },
+    twitter: {
+      gray: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f6014e86297e613f3_Twitter%20Gray.svg",
+      blue: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f62414a6710a6774f_Twitter%20Blue.svg"
+    },
+    linkedin: {
+      gray: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f6dec5df6f862e9ad_Linkend%20Gray.svg",
+      blue: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f32ebea93d1dad4c6_Linkend%20Blue.svg"
+    },
+    pinterest: {
+      gray: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8fc4a168e60b3dfe06_Pinterest%20Gray.svg",
+      blue: "https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f0572ae9a7e322bc1_Pinterest%20Blue.svg"
+    }
   };
 
   return (
-    <section className="section team">
-      <div className="w-layout-blockcontainer container w-container">
-        <div data-w-id="ab3787e3-ed0a-e746-2f10-34de67e0eadc" className="team-wrapper">
-          <div className="team-sticky-wrap">
-            <div data-w-id="48061a32-c855-6eb2-9248-49d3ea24881f" style={{ opacity: 0 }} className="team-all-wrap">
-              <div className="team-all-item-wrap">
-                {teamMembers.map((member, index) => (
-                  <div 
-                    key={member.id}
-                    data-w-id={member.dataWId}
-                    className={`team-item-wrap _0${index + 1}`}
-                  >
-                    <div className="team-single-wrap">
-                      <div className="team-bg-wrap">
-                        <img 
-                          src={member.image}
-                          loading="lazy"
-                          sizes={member.imageSizes}
-                          srcSet={member.imageSrcSet}
-                          alt="Team User Image"
-                          className="team-user-image"
+    <section className="section team" style={{ textAlign: 'center', overflow: 'hidden',  }}>
+      <div className="w-layout-blockcontainer container w-container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+       <div className="faq-top-wrap" data-aos="fade-up">
+                    <div className="section-sub-title-wrap" data-aos="fade-up" data-aos-delay="100">
+                      <div className="section-single-title">
+                        <Image 
+                          src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/687c318a60d814c2e8209c90_Faq%20Icon.svg" 
+                          loading="lazy" 
+                          alt="Faq Icon" 
+                          className="faq-icon"
+                          width={24}
+                          height={24}
                         />
-                        <div className="team-btm-wrap">
-                          {index === 0 ? (
-                            <h3 className="team-btm-title">{member.name}</h3>
-                          ) : (
-                            <h4 className="team-btm-title">{member.name}</h4>
-                          )}
-                          <div className="team-author-pst">{member.position}</div>
-                          <div className="team-social-wrapper">
-                            {/* Facebook */}
-                            <a 
-                              data-w-id={member.socialLinks.facebook.dataWId}
-                              href="https://www.facebook.com/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="team-social-link w-inline-block"
-                            >
-                              <div className="team-social-link-wrap">
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f40d2b35d3d191e9c_Facebook%20Gray.svg" 
-                                  loading="lazy" 
-                                  style={socialIconStyle}
-                                  alt="Team Social Icon" 
-                                  className={`team-social-icon ${index === 1 ? '_02' : ''}`}
-                                />
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aacae02413305de5696e_Facebook%20Blue.svg" 
-                                  loading="lazy" 
-                                  style={socialIconStyle}
-                                  alt="Team Social Icon" 
-                                  className={`team-social-icon ${index === 1 ? '_02' : ''}`}
-                                />
-                              </div>
-                            </a>
-
-                            {/* Twitter */}
-                            <a 
-                              data-w-id={member.socialLinks.twitter.dataWId}
-                              href="https://www.linkedin.com/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="team-social-link w-inline-block"
-                            >
-                              <div className="team-social-link-wrap">
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f6014e86297e613f3_Twitter%20Gray.svg" 
-                                  loading="lazy" 
-                                  style={socialIconStyle}
-                                  alt="Team Social Icon" 
-                                  className="team-social-icon"
-                                />
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f62414a6710a6774f_Twitter%20Blue.svg" 
-                                  loading="lazy" 
-                                  style={socialIconStyle}
-                                  alt="Team Social Icon" 
-                                  className="team-social-icon"
-                                />
-                              </div>
-                            </a>
-
-                            {/* LinkedIn */}
-                            <a 
-                              data-w-id={member.socialLinks.linkedin.dataWId}
-                              href="https://www.linkedin.com/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="team-social-link w-inline-block"
-                            >
-                              <div className="team-social-link-wrap">
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f6dec5df6f862e9ad_Linkend%20Gray.svg" 
-                                  loading="lazy" 
-                                  alt="Team Social Icon" 
-                                  className="team-social-icon _01"
-                                />
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f32ebea93d1dad4c6_Linkend%20Blue.svg" 
-                                  loading="lazy" 
-                                  style={socialIconStyle}
-                                  alt="Team Social Icon" 
-                                  className="team-social-icon"
-                                />
-                              </div>
-                            </a>
-
-                            {/* Pinterest */}
-                            <a 
-                              data-w-id={member.socialLinks.pinterest.dataWId}
-                              href="https://www.pinterest.com/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="team-social-link w-inline-block"
-                            >
-                              <div className="team-social-link-wrap">
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8fc4a168e60b3dfe06_Pinterest%20Gray.svg" 
-                                  loading="lazy" 
-                                  style={socialIconStyle}
-                                  alt="Team Social Icon" 
-                                  className="team-social-icon"
-                                />
-                                <img 
-                                  src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6885aa8f0572ae9a7e322bc1_Pinterest%20Blue.svg" 
-                                  loading="lazy" 
-                                  style={socialIconStyle}
-                                  alt="Team Social Icon" 
-                                  className="team-social-icon"
-                                />
-                              </div>
-                            </a>
+                        <div className="section-sub-title">Team</div>
+                      </div>
+                    </div>
+                    <h2 className="faq-title" data-aos="fade-up" data-aos-delay="200">Meet Our All Team Members.</h2>
+                    </div>
+                    
+                     <div className="team-wrapper" data-aos="fade-up">
+          <div className="team-all-item-wrap" style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center',
+            gap: '80px',
+            padding: '40px 0'
+          }}>
+            {teamMembers.map((member, index) => (
+              <div 
+                key={member.id} 
+                className="team-item-wrap" 
+                data-aos="fade-up" 
+                data-aos-delay={300 + (index * 100)}
+                style={{ 
+                  maxWidth: '600px',
+                  width: '100%',
+                  margin: '0 auto'
+                }}
+              >
+                <div className="team-single-wrap">
+                  <div className="team-bg-wrap">
+                    <Image
+                      src={member.image}
+                      alt="Team User Image"
+                      className="team-user-image"
+                      width={400}
+                      height={300}
+                      loading="lazy"
+                      style={{ 
+                        width: '100%',
+                        height: 'auto',
+                        maxWidth: '400px',
+                        borderRadius: '8px'
+                      }}
+                    />
+                    <div className="team-btm-wrap" style={{ marginTop: '20px' }}>
+                      <h3 className="team-btm-title" style={{ 
+                        fontSize: '24px', 
+                        marginBottom: '8px',
+                        textAlign: 'center'
+                      }}>
+                        {member.name}
+                      </h3>
+                      <div className="team-author-pst" style={{ 
+                        fontSize: '16px',
+                        color: '#666',
+                        marginBottom: '20px',
+                        textAlign: 'center'
+                      }}>
+                        {member.position}
+                      </div>
+                      <div className="team-social-wrapper" style={{ 
+                        display: 'flex', 
+                        justifyContent: 'center',
+                        gap: '12px'
+                      }}>
+                        <a href="https://www.facebook.com/" target="_blank" className="team-social-link w-inline-block">
+                          <div className="team-social-link-wrap">
+                            <Image src={socialIcons.facebook.gray} alt="Facebook" width={20} height={20} />
+                            <Image src={socialIcons.facebook.blue} alt="Facebook" width={20} height={20} />
                           </div>
-                        </div>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" className="team-social-link w-inline-block">
+                          <div className="team-social-link-wrap">
+                            <Image src={socialIcons.twitter.gray} alt="Twitter" width={20} height={20} />
+                            <Image src={socialIcons.twitter.blue} alt="Twitter" width={20} height={20} />
+                          </div>
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank" className="team-social-link w-inline-block">
+                          <div className="team-social-link-wrap">
+                            <Image src={socialIcons.linkedin.gray} alt="LinkedIn" width={20} height={20} />
+                            <Image src={socialIcons.linkedin.blue} alt="LinkedIn" width={20} height={20} />
+                          </div>
+                        </a>
+                        <a href="https://www.pinterest.com/" target="_blank" className="team-social-link w-inline-block">
+                          <div className="team-social-link-wrap">
+                            <Image src={socialIcons.pinterest.gray} alt="Pinterest" width={20} height={20} />
+                            <Image src={socialIcons.pinterest.blue} alt="Pinterest" width={20} height={20} />
+                          </div>
+                        </a>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
+                <h1 className="team-back-title" style={{ 
+                  fontSize: '32px',
+                  marginTop: '30px',
+                  color: '#f0f0f0',
+                  textAlign: 'center',
+                  fontWeight: 'bold'
+                }}>
+                  {member.backTitle}
+                </h1>
               </div>
-              
-              <div className="team-all-title-wrap">
-                {backgroundTitles.map((title, index) => (
-                  <h1 key={index} className="team-back-title">
-                    {title}
-                  </h1>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,13 +1,21 @@
+"use client";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 import PricingCard from "./PricingCard";
 
 const PricingSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
     <section className="section pricing">
       <div className="section-bg">
         <div className="container">
           <div className="pricing-wrapper">
-            <div className="pricing-top-wrap">
-              <div className="section-sub-title-wrap">
+            <div className="pricing-top-wrap" data-aos="fade-up">
+              <div className="section-sub-title-wrap" data-aos="fade-up" data-aos-delay="100">
                 <div className="section-single-title pd--09">
                   <img
                     src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6882e9e4bd1e47cda95a6814_Price%20Icon.svg"
@@ -18,8 +26,8 @@ const PricingSection = () => {
                   <div className="section-sub-title font-16">Pricing</div>
                 </div>
               </div>
-              <h1 className="pricing-title">Ministry Management Plans</h1>
-              <p className="pricing-details">
+              <h1 className="pricing-title" data-aos="fade-up" data-aos-delay="200">Ministry Management Plans</h1>
+              <p className="pricing-details" data-aos="fade-up" data-aos-delay="300">
                 From sermon preparation to ministry organization—all from one powerful platform. Streamline your ministry, save time, and focus on what matters most.
               </p>
             </div>

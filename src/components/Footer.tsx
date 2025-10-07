@@ -1,12 +1,19 @@
-"use client";
+'use client';
 import "@/styles/globals.css";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 export default function Footer() {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
     <footer className="footer">
       <div className="w-layout-blockcontainer container">
         <div className="footer-main">
-          <div className="footer-brand">
+          <div className="footer-brand" data-aos="fade-up">
             <div className="footer-logo">Preach Pro</div>
             <p className="footer-description">
               Empowering ministries with intelligent tools for sermon writing, organization, and leadership growth.
@@ -14,7 +21,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-links-grid">
-            <div className="footer-column">
+            <div className="footer-column" data-aos="fade-up" data-aos-delay="100">
               <h3 className="footer-column-title">Platform</h3>
               <div className="footer-links">
                 <a href="/" className="footer-link">Home</a>
@@ -25,7 +32,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="footer-column">
+            <div className="footer-column" data-aos="fade-up" data-aos-delay="200">
               <h3 className="footer-column-title">Resources</h3>
               <div className="footer-links">
                 <a href="/terms" className="footer-link">Terms of Service</a>
@@ -35,7 +42,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="footer-column">
+            <div className="footer-column" data-aos="fade-up" data-aos-delay="300">
               <h3 className="footer-column-title">Company</h3>
               <div className="footer-links">
                 <a href="/about" className="footer-link">About</a>
@@ -45,7 +52,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="footer-column">
+            <div className="footer-column" data-aos="fade-up" data-aos-delay="400">
               <div className="footer-newsletter">
                 <div className="newsletter-label">Stay updated</div>
                 <h3 className="footer-column-title">Join our Ministry Network</h3>
@@ -55,7 +62,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom" data-aos="fade-up" data-aos-delay="500">
           <div className="footer-copyright">
             <div>© 2025 Preach Pro. All rights reserved.</div>
             <div>Powered by Next.js and Supabase</div>

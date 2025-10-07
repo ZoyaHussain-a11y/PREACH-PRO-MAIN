@@ -1,12 +1,19 @@
 "use client";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const MoveSection2 = () => {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
     <section className="section move">
       <div className="w-layout-blockcontainer container">
         <div className="move-wrapper">
-          <div className="move-top-wrap">
-            <div className="section-sub-title-wrap">
+          <div className="move-top-wrap" data-aos="fade-up">
+            <div className="section-sub-title-wrap" data-aos="fade-up" data-aos-delay="100">
               <div className="section-single-title pd--09">
                 <img
                   src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6884603b84724c2aec08c257_Feature%20Icon.svg"
@@ -17,11 +24,11 @@ const MoveSection2 = () => {
                 <div className="section-sub-title font-16">Feature</div>
               </div>
             </div>
-            <h2 className="move-title">Intelligent Preaching Analytics</h2>
+            <h2 className="move-title" data-aos="fade-up" data-aos-delay="200">Intelligent Preaching Analytics</h2>
           </div>
 
           <div className="move-wrap">
-            <div className="assistance-single-wrap">
+            <div className="assistance-single-wrap" data-aos="fade-up" data-aos-delay="300">
               <div className="assistance-left-wrap">
                 <h3 className="assistance-single-title">Preach Coach Feedback</h3>
                 <p className="assistance-single-details">
@@ -61,7 +68,7 @@ const MoveSection2 = () => {
               </div>
             </div>
 
-            <div className="assistance-btm-wrap">
+            <div className="assistance-btm-wrap" data-aos="fade-up" data-aos-delay="400">
               <div className="assistance-right-wrap">
                 <img
                   src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/68846e42375061165228c2b2_Assistance%20Iamge%2002.webp"

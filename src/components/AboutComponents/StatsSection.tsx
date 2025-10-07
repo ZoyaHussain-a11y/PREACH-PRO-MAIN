@@ -1,3 +1,7 @@
+"use client";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 interface StatsItem {
   icon: string;
@@ -8,6 +12,10 @@ interface StatsItem {
 }
 
 const Stats = () => {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   // Updated number sequences to display "20K" and "+24"
   const numberSequence1: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const numberSequence2: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -41,8 +49,8 @@ const Stats = () => {
       <div className="w-layout-blockcontainer container w-container">
         <div className="stats-wrapper">
           <div className="stats-grid-wrap">
-            <div className="stats-left-wrap">
-              <div className="stats-left-top-wrap">
+            <div className="stats-left-wrap" data-aos="fade-up">
+              <div className="stats-left-top-wrap" data-aos="fade-up" data-aos-delay="100">
                 <div data-w-id="e4fc693f-1359-3c0b-7b46-02dd5305690e" style={{ opacity: 1 }} className="section-sub-title-wrap">
                   <div className="section-single-title pd--09">
                     <img
@@ -56,7 +64,7 @@ const Stats = () => {
                 </div>
                 <h2 className="stats-title">Powering Smarter Development</h2>
               </div>
-              <div data-w-id="4e5ba5fc-d397-b7ae-efa5-e62c008d0936" style={{ opacity: 1 }} className="stats-left-btm-wrap">
+              <div data-w-id="4e5ba5fc-d397-b7ae-efa5-e62c008d0936" style={{ opacity: 1 }} className="stats-left-btm-wrap" data-aos="fade-up" data-aos-delay="200">
                 {/* 20K - Build live Websites */}
                 <div className="stast-number-wrapper">
                   <div data-w-id="77b4320c-100a-6891-9d9f-8b00897d9127" className="stast-number-wrap">
@@ -130,6 +138,8 @@ const Stats = () => {
                   data-w-id={item.dataWId}
                   style={{ opacity: 1 }}
                   className="stats-single-wrap"
+                  data-aos="fade-up"
+                  data-aos-delay={300 + (index * 100)}
                 >
                   <div className="stats-single-bg-wrap">
                     <div className="stats-signle-icon-wrap">

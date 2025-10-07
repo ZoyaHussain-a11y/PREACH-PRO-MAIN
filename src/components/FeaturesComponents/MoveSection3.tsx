@@ -1,12 +1,19 @@
 "use client";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const MoveSection3 = () => {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
     <section className="section move-last">
       <div className="w-layout-blockcontainer container">
         <div className="move-wrapper">
-          <div className="move-top-wrap">
-            <div className="section-sub-title-wrap">
+          <div className="move-top-wrap" data-aos="fade-up">
+            <div className="section-sub-title-wrap" data-aos="fade-up" data-aos-delay="100">
               <div className="section-single-title pd--09">
                 <img
                   src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6884603b84724c2aec08c257_Feature%20Icon.svg"
@@ -17,12 +24,12 @@ const MoveSection3 = () => {
                 <div className="section-sub-title font-16">Feature</div>
               </div>
             </div>
-            <h2 className="move-title">Complete Ministry Organization</h2>
+            <h2 className="move-title" data-aos="fade-up" data-aos-delay="200">Complete Ministry Organization</h2>
           </div>
 
           <div className="move-wrap">
             <div className="move-grid-wrap">
-              <div className="move-single-wrap">
+              <div className="move-single-wrap" data-aos="fade-up" data-aos-delay="300">
                 <div className="move-single-image-wrap">
                   <img
                     src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/68844ff8161faac4bd4fa8e9_Feature%20Image%2004.webp"
@@ -39,7 +46,7 @@ const MoveSection3 = () => {
                 </div>
               </div>
 
-              <div className="move-single-wrap">
+              <div className="move-single-wrap" data-aos="fade-up" data-aos-delay="400">
                 <div className="move-single-image-wrap">
                   <img
                     src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/68844ff77b5146dd43bc017e_Feature%20Image%2005.webp"
@@ -57,7 +64,7 @@ const MoveSection3 = () => {
               </div>
             </div>
 
-            <div className="move-btm-wrap">
+            <div className="move-btm-wrap" data-aos="fade-up" data-aos-delay="500">
               <img
                 src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/68844ff8d2ddf3c78d6bf2b7_Feature%20Image%2006.webp"
                 loading="lazy"

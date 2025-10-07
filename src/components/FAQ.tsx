@@ -1,10 +1,16 @@
 'use client';
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FAQ = () => {
-  const [activeTab, setActiveTab] = useState<number | null>(0);
+  const [activeTab, setActiveTab] = useState<number | null>(null);
+
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
 
   const faqData = [
     {
@@ -39,7 +45,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="section faq">
+    <section className="section faq" data-aos="fade-up">
       <div className="w-layout-blockcontainer container">
         <div className="faq-wrapper">
           <div className="faq-top-wrap">
@@ -65,7 +71,7 @@ const FAQ = () => {
                 {faqData.map((faq, index) => (
                   <div 
                     key={index}
-                    className={`faq-tab-link ${activeTab === index ? 'w--current' : ''}`}
+                    className={`faq-tab-link`}
                     onClick={() => toggleTab(index)}
                     style={{ cursor: 'pointer' }}
                   >
@@ -76,7 +82,7 @@ const FAQ = () => {
                           <Image 
                             src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/687c3483808d90d0737df7e2_Plus.svg" 
                             loading="lazy" 
-                            alt="Faq Icon" 
+                            alt="Plus Icon" 
                             className={`faq-single-icon _01 ${activeTab === index ? 'hidden' : ''}`}
                             width={20}
                             height={20}
@@ -84,15 +90,25 @@ const FAQ = () => {
                           <Image 
                             src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/687c3483216fcb9d156d245e_Minuse.svg" 
                             loading="lazy" 
-                            alt="Faq Icon" 
+                            alt="Minus Icon" 
                             className={`faq-single-icon _02 ${activeTab === index ? '' : 'hidden'}`}
                             width={20}
                             height={20}
                           />
                         </div>
                       </div>
-                      <div className={`faq-answer-wrap ${activeTab === index ? 'active' : ''}`}>
-                        <p className="faq-single-details">{faq.answer}</p>
+                      <div 
+                        className={`faq-answer-wrap ${activeTab === index ? 'active' : ''}`}
+                        style={{
+                          maxHeight: activeTab === index ? '1000px' : '0px',
+                          overflow: 'hidden',
+                          transition: 'max-height 0.5s ease, opacity 0.3s ease',
+                          opacity: activeTab === index ? 1 : 0
+                        }}
+                      >
+                        <div className="faq-answer-content">
+                          <p className="faq-single-details">{faq.answer}</p>
+                        </div>
                       </div>
                     </div>
                   </div>

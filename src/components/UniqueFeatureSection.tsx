@@ -1,14 +1,20 @@
-// File: components/UniqueFeatureSection.tsx
 "use client";
 import "@/styles/globals.css";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 export default function UniqueFeatureSection() {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
     <section className="section uniqe">
       <div className="w-layout-blockcontainer container">
         <div className="uniqe-wrapper">
-          <div className="move-top-wrap">
-            <div className="section-sub-title-wrap">
+          <div className="move-top-wrap" data-aos="fade-up">
+            <div className="section-sub-title-wrap" data-aos="fade-up" data-aos-delay="100">
               <div className="section-single-title pd--09">
                 <img
                   src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/6884603b84724c2aec08c257_Feature%20Icon.svg"
@@ -19,11 +25,11 @@ export default function UniqueFeatureSection() {
                 <div className="section-sub-title font-16">Unique Feature</div>
               </div>
             </div>
-            <h2 className="move-title">Featured you've always dreamed of</h2>
+            <h2 className="move-title" data-aos="fade-up" data-aos-delay="200">Featured you've always dreamed of</h2>
           </div>
           <div className="uniqe-wrap">
             <div className="uniqe-grid-wrap">
-              <div className="uniqe-left-wrap">
+              <div className="uniqe-left-wrap" data-aos="fade-up" data-aos-delay="300">
                 <div className="uniqe-left-bg-wrap">
                   <h3 className="uniqe-single-title">Tab, tab, tab</h3>
                   <p className="uniqe-signle-details">
@@ -38,7 +44,7 @@ export default function UniqueFeatureSection() {
                 </div>
               </div>
               <div className="uniqe-right-wrap">
-                <div className="uniqe-single-wrap">
+                <div className="uniqe-single-wrap" data-aos="fade-up" data-aos-delay="400">
                   <div className="uniqe-single-bg-wrap">
                     <img
                       src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/68847b105ce5b5ccb722d8cf_Unique%20Icon%2001.svg"
@@ -52,7 +58,7 @@ export default function UniqueFeatureSection() {
                     </p>
                   </div>
                 </div>
-                <div className="uniqe-single-wrap">
+                <div className="uniqe-single-wrap" data-aos="fade-up" data-aos-delay="500">
                   <div className="uniqe-single-bg-wrap _02">
                     <img
                       src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/68847b10617c539ba866e56e_Unique%20Icon%2002.svg"

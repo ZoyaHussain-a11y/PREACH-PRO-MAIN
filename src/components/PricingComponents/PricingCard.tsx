@@ -1,4 +1,6 @@
-import React from "react";
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
 
 interface PricingCardProps {
   title: string;
@@ -21,13 +23,17 @@ const PricingCard: React.FC<PricingCardProps> = ({
   link,
   isPro,
 }) => {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
-    <div className="pricing-cl-wrapper">
+    <div className="pricing-cl-wrapper" data-aos="fade-up">
       <div className="pricing-cl-list">
         <div className="pricing-cl-item">
           <div className={`pricing-card-wrap ${isPro ? "_02" : ""}`}>
             <div className="pricing-card-bg">
-              <div className="pricing-card-top-wrap">
+              <div className="pricing-card-top-wrap" data-aos="fade-up" data-aos-delay="100">
                 <div className={isPro ? "pricing-active-sub-wrap" : "section-sub-title-wrap"}>
                   <div className={`section-single-title pd-08`}>
                     <img
@@ -49,7 +55,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
               <div className="pricing-line-wrap"></div>
 
-              <div className="pricing-all-list-wrapper">
+              <div className="pricing-all-list-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <div className="pricing-list-title">Features Included:</div>
                 <div className="pricing-list-items-wrapper">
                   {features.map((feature, index) => (
@@ -68,7 +74,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
               <div className="pricing-line-wrap"></div>
 
-              <a href={link} className={isPro ? "_404-button pricing" : "pricing-button"}>
+              <a href={link} className={isPro ? "_404-button pricing" : "pricing-button"} data-aos="fade-up" data-aos-delay="300">
                 <div className={isPro ? "footer-btn-bg pricing" : "pricing-btn-bg-wrap"}>
                   <div className={isPro ? "footer-btn-text-wrap" : "pricing-btn-all-wrap"}>
                     <div className={isPro ? "pricing-text-wrap" : "pricing-btn-text-wrap"}>

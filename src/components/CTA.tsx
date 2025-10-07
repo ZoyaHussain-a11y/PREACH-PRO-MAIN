@@ -1,18 +1,25 @@
-"use client";
+'use client';
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const CTA = () => {
+  useEffect(() => {
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+  }, []);
+
   return (
     <section className="section cta">
       <div className="w-layout-blockcontainer container">
         <div className="cta-wrapper">
-          <div className="cta-top-wrap">
-            <h2 className="cta-title">
+          <div className="cta-top-wrap" data-aos="fade-up">
+            <h2 className="cta-title" data-aos="fade-up" data-aos-delay="100">
               Try <span className="cta-rgb">Preach Pro</span> Today
             </h2>
-            <div className="cta-details">
+            <div className="cta-details" data-aos="fade-up" data-aos-delay="200">
               Empower your ministry with AI-assisted sermon preparation, organized calendars, task management, and analytics — all in one powerful platform.
             </div>
-            <div className="cta-form-block">
+            <div className="cta-form-block" data-aos="fade-up" data-aos-delay="300">
               <form
                 id="email-form"
                 name="email-form"
@@ -41,7 +48,7 @@ const CTA = () => {
               </form>
             </div>
           </div>
-          <div className="cta-wrap">
+          <div className="cta-wrap" data-aos="fade-up" data-aos-delay="400">
             <img
               src="https://cdn.prod.website-files.com/687a22774248f07556bfb7de/687b2bf3fb2598beba1d12cf_CTA%20Image.png"
               loading="lazy"
